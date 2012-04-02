@@ -21,7 +21,7 @@ public
   # Standard inits for the server object go here 
   def initialize 
     @ServerHandle = TCPServer.new TechnicalServices::Configuration.instance.Attributes["PORT"].to_i
-   @Done = false 
+    @Done = false 
   end 
 
   # The entry point for starting up the server.  
@@ -30,7 +30,7 @@ public
    puts "  > Using port [#{TechnicalServices::Configuration.instance.Attributes["PORT"]}]"
    puts "Server is up "
    
-	 loop {
+    loop {
      begin
        Thread.start(@ServerHandle.accept) do |client| 
        # 
@@ -42,7 +42,7 @@ public
        str = client.gets
        puts "str:" + str.to_s
        client.puts "Got your message, chum." 
-		 client.close
+       client.close
        end 
      rescue => details
        puts details.message 

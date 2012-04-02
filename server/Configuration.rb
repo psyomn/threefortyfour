@@ -14,9 +14,9 @@ public
   # Standard initializement for the configuration object goes here 
   def initialize 
     @Attributes = Hash.new 
-	 @ConfigurationFileName = "configuration.txt" 
+    @ConfigurationFileName = "configuration.txt" 
 
-	 load_attributes  
+    load_attributes  
   end 
 
 private
@@ -28,10 +28,10 @@ private
     raise "Malformed config file" if arr.size % 2 != 0
 
     i = 0 
-	 while i < arr.count 
-	   @Attributes[arr[i]] = arr[i+1]  
-	   i += 2 
-	 end 
+    while i < arr.count 
+      @Attributes[arr[i]] = arr[i+1]  
+      i += 2 
+    end 
   end 
 
 end 
