@@ -22,7 +22,7 @@ public
   # Handle a given command 
   def command(cmd)
     first = cmd.split[0] 
-	 first = "default" if !cmd.split[0].nil?
+    first = "default" if !cmd.split[0].nil?
     case first  
       when /help/ 
         help_command 
@@ -65,7 +65,7 @@ private
     conn = TechnicalServices::Connection.new 
     reply  = conn.send_message("hello world") 
 
-	 puts reply 
+    puts reply 
   end 
 
   # For logout 

@@ -26,10 +26,10 @@ public
   def send_message(message) 
     @SocketHandle = TCPSocket.open(@Host,@Port)
     @SocketHandle.puts message 
-	 server_reply = @SocketHandle.gets 
+    server_reply = @SocketHandle.gets 
     @SocketHandle.close 
 
-	 server_reply 
+    server_reply 
   end 
 
 private 

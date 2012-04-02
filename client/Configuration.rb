@@ -14,7 +14,7 @@ public
   # upon class creation. 
   def initialize 
     @Attributes = Hash.new 
-	 @ConfigurationFilename = "configuration.txt" 
+    @ConfigurationFilename = "configuration.txt" 
     load_attributes 
   end 
 private 
@@ -26,11 +26,11 @@ private
 
     raise "Malformed configuration file." if arr.size % 2 != 0 
     
-	 index = 0 
-	 while index < arr.size 
-	   @Attributes[arr[index]] = arr[index+1] 
-		index += 2 
-	 end 
+    index = 0 
+    while index < arr.size 
+      @Attributes[arr[index]] = arr[index+1] 
+      index += 2 
+    end 
   end 
 
 

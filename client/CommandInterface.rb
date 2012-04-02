@@ -26,15 +26,15 @@ public
     puts "  Type 'help' for list of available commands "
 
      while not @Finished do 
-	    print "> "
-		 input = $stdin.gets
+       print "> "
+       input = $stdin.gets
        input.chomp! if !input.nil?
-	    if input != "quit" 
-			@Parser.command(input) 
-	    else
-		   @Finished = true 
-		 end 
-	  end 
+       if input != "quit" 
+         @Parser.command(input) 
+       else
+         @Finished = true 
+       end 
+     end 
   end 
 private 
   # The Command Parser for the interface 
