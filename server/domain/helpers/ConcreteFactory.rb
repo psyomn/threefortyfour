@@ -1,10 +1,10 @@
 require_relative 'IFactory.rb'
-require_relative 'Configuration.rb'
+require_relative '../technicalservices/Configuration.rb'
 
 module Domain
 module Helpers
 
-#Author::Simon Symeonidis | 5887887 
+#Author::Simon Symeonidis | ID 5887887 
 # This is the concrete factory that is supposed to build the events
 # and other information by loading it from the database.
 class ConcreteFactory < IFactory

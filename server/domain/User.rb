@@ -9,13 +9,12 @@ public
   # The user ID
   attr :ID
 
-  # The username of that particular person
-  attr :Username 
-
-  # The password of that person
-  attr :Password
+  # Whether the user has 
+  # admin priviledges or not 
+  attr :Admin 
 
   def initialize
+    @Admin = false 
   end 
 
 private 
