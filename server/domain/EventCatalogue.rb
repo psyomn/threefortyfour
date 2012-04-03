@@ -11,29 +11,9 @@ class EventCatalogue
 
 public
 
-  # Standard init. Create the hash that stores events 
-  # with keys of id. 
+  # Standard init.
   def initialize
-    @Events = Hash.new 
-  end 
-
-  # If the id is contained in events 
-  def has_id? param 
-    @Events.has_key? param
-  end 
-
-  # If the event is contained
-  def has_event? param 
-    @Events.has_value? param 
-  end 
-
-  # Return the event by the requested id 
-  def get_event_by_id id 
-    if has_id? id
-	   @Events[id] 
-	 else 
-	   nil 
-	 end 
+    @Events = Array.new 
   end 
 
 private 

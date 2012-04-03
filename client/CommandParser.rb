@@ -17,11 +17,11 @@ public
     # Available Commands 
     @AvailableCommands = Array.new 
     
-    @AvailableCommands.push [:help, "lists help for commands", :help_command] 
-    @AvailableCommands.push [:login, "login to system", :login_comman] 
-    @AvailableCommands.push [:logout, "logout from system", :logout_comman] 
-    @AvailableCommands.push [:cancel, "cancel from system", :cancel_comman] 
-    @AvailableCommands.push [:reserve, "reserve from system", :cancel_comman] 
+    @AvailableCommands.push [:help, "lists help for commands", :helpCommand] 
+    @AvailableCommands.push [:login, "login to system", :loginCommand] 
+    @AvailableCommands.push [:logout, "logout from system", :logoutCommand] 
+    @AvailableCommands.push [:cancel, "cancel from system", :cancelCommand] 
+    @AvailableCommands.push [:reserve, "reserve from system", :cancelCommand] 
 
   end 
 
@@ -31,19 +31,19 @@ public
     first = "default" if !cmd.split[0].nil?
     case first  
       when /help/ 
-        help_command 
+        helpCommand 
 
       when /login/
-        login_command cmd
+        loginCommand cmd
             
       when /logout/
-        logout_command 
+        logoutCommand 
       
       when /reserve/ 
-        reserve_command 
+        reserveCommand 
 
       when /cancel/
-        cancel_command 
+        cancelCommand 
 
       else 
         puts "Error in input. Type help for salvation." 
@@ -64,7 +64,7 @@ private
   # 
 
   # The help command 
-  def help_command
+  def helpCommand
     @AvailableCommands.each do |com_row| 
       com_row.each_with_index do |desc,i| 
       print "#{desc}: " if 0 == i
@@ -76,7 +76,7 @@ private
   end 
 
   # For loging in 
-  def login_command param 
+  def loginCommand param 
     puts "TODO"
     conn = TechnicalServices::Connection.new 
     reply  = conn.send_message("hello world") 
@@ -85,17 +85,17 @@ private
   end 
 
   # For logout 
-  def logout_command
+  def logoutCommand
     puts "TODO"
   end 
 
   # For reservations 
-  def reserve_command 
+  def reserveCommand 
     puts "TODO"
   end 
 
   # For cancelations 
-  def cancel_command 
+  def cancelCommand 
     puts "TODO"
   end 
 
