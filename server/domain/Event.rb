@@ -12,18 +12,11 @@ public
   # The specification class for this particular
   # event
   attr :Specification 
-  
+
+  attr :Theater
+
   # Standard initializement 
   def initialize 
-    @Specification = EventSpecification.new
-  end 
-
-  # return the id of the event
-  def get_id 
-  end 
-
-  # return the type of the event
-  def get_type
   end 
 
 private 

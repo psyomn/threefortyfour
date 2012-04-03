@@ -1,25 +1,28 @@
+require 'singleton'
+
 module Domain 
 
 #Author::Simon Symeonidis | ID 5887887
 # The event specifications that may be 
 # plugged in to each event. 
 class EventSpecification
-  
+  include Singleton
+
 public 
   # Event ID 
-  attr :ID
+  attr_accessor :ID
   
   # Event Type
-  attr :Type
+  attr_accessor :Type
   
   # Event Lock
-  attr :Lock
+  attr_accessor :Lock
 
   # Event date 
-  attr :EventDate 
+  attr_accessor :EventDate 
 
   # Capacity 
-  attr :Capacity
+  attr_accessor :Capacity
 
   # Standard initializement 
   def initialize
