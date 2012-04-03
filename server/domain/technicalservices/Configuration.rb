@@ -1,5 +1,6 @@
 require 'singleton'
 
+module Domain
 module TechnicalServices
 #Author::Simon Symeonidis | ID 5887887 
 # This class takes care of configuration attributes
@@ -37,4 +38,4 @@ private
 end 
 
 end 
-
+end 

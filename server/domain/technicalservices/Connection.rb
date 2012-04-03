@@ -1,3 +1,4 @@
+module Domain
 module TechnicalServices 
 
 #Author::Simon Symeonidis | ID 5887887 
@@ -24,4 +25,4 @@ private
 end 
 
 end 
-
+end 

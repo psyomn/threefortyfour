@@ -4,6 +4,7 @@ require 'socket'
 require_relative 'Connection.rb'
 require_relative 'Configuration.rb'
 
+module Domain
 module TechnicalServices 
 
 #Author::Simon Symeonidis | ID 5887887 
@@ -61,5 +62,6 @@ private
   attr_accessor :Done 
 end 
 
+end 
 end 
 
