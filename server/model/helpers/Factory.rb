@@ -1,6 +1,6 @@
 require 'singleton'
 
-module helpers
+module Domain::Helpers
 
 #Author::Simon Symeonidis | ID 5887887 
 # Factory for creating the objects when the system 

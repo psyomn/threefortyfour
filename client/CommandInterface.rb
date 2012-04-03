@@ -36,6 +36,11 @@ public
        end 
      end 
   end 
+
+  # For running the program with the required text files. 
+  def runSimulation
+  end 
+
 private 
   # The Command Parser for the interface 
   attr_reader :Parser

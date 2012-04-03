@@ -11,11 +11,17 @@ module TechnicalServices
 class CommandParser
 
 public
+
+  # default constructor w/ no params. 
   def initialize
     # Available Commands 
     @AvailableCommands = Array.new 
     
     @AvailableCommands.push [:help, "lists help for commands", :help_command] 
+    @AvailableCommands.push [:login, "login to system", :login_comman] 
+    @AvailableCommands.push [:logout, "logout from system", :logout_comman] 
+    @AvailableCommands.push [:cancel, "cancel from system", :cancel_comman] 
+    @AvailableCommands.push [:reserve, "reserve from system", :cancel_comman] 
 
   end 
 
@@ -38,11 +44,21 @@ public
 
       when /cancel/
         cancel_command 
+
+      else 
+        puts "Error in input. Type help for salvation." 
+
     end 
   end 
 
 private 
+  # The list of available commands 
   attr_reader :AvailableCommands 
+
+  # Handle for the file descriptor/object of the socket used
+  # for the connection 
+  attr_reader :ConnectionHandle
+
   # 
   # Command Implementations 
   # 
