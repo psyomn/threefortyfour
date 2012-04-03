@@ -1,14 +1,13 @@
-require 'singleton'
-
 module Domain 
 
 #Author::Simon Symeonidis | ID 5887887
 # The event specifications that may be 
 # plugged in to each event. 
 class EventSpecification
-  include Singleton
+
 
 public 
+
   # Event ID 
   attr_accessor :ID
   
@@ -26,15 +25,17 @@ public
 
   # Standard initializement 
   def initialize
-    @ID = nil 
+    @ID = @@SelfCount 
     @EventDate = DateTime.new
 	 @Lock = false 
 	 @Type = String.new 
 	 @Capacity = 0 
+
+    @@SelfCount += 1
   end 
 
 private 
-
+  @@SelfCount = 0 
 end 
 
 end 

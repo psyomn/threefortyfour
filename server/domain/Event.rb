@@ -11,13 +11,17 @@ public
 
   # The specification class for this particular
   # event
-  attr :Specification 
+  attr :Specification
 
+  # XXX this might need to go. 
   attr :Theater
 
   # Standard initializement 
   def initialize 
   end 
+
+  def setByID(id)
+  end
 
 private 
 
