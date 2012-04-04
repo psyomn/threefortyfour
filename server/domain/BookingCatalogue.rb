@@ -1,4 +1,5 @@
 require 'singleton'
+require 'thread' 
 
 module Domain 
 
@@ -19,7 +20,9 @@ public
   # Register the user for the specified 
   # event 
   def createBooking(user,event,count) 
+    semaphore = Mutex.new 
     
+    semaphore.synchronize {
     if @Bookings.has_key? user and @Bookings[user].has_key? event
       @Bookings[user][event] += count.to_i
     else
@@ -28,7 +31,7 @@ public
       end   
       @Bookings[user][event] = count.to_i
     end 
-    
+    } 
     p @Bookings
   end 
 

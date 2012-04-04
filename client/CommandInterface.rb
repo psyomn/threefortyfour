@@ -39,12 +39,31 @@ public
 
   # For running the program with the required text files. 
   def runSimulation
+    simulatedClient("guy1") 
+    simulatedClient("guy2") 
+    simulatedClient("guy3") 
+    simulatedClient("guy4") 
+
+    simulatedAdmin
   end 
 
 private 
   # The Command Parser for the interface 
   attr_reader :Parser
   attr_reader :Finished
+
+  def simulatedClient(clientName) 
+      @Parser.command("login user #{clientName}") 
+      @Parser.command("viewall") 
+      @Parser.command("bookevent 0 1") 
+      @Parser.command("bookevent 1 2")
+      @Parser.command("viewall") 
+  end 
+
+  def simulatedAdmin
+    @Parser.command("login admin")
+    @Parser.command("listbookings") 
+  end
 end 
 
 end 

@@ -1,5 +1,5 @@
 
-module Persistance 
+module Persistence 
 
 class EventSpecificationTDG 
 
