@@ -7,11 +7,11 @@ class User
 public
   
   # The user ID
-  attr :ID
+  attr_accessor :ID
 
   # Whether the user has 
   # admin priviledges or not 
-  attr :Admin 
+  attr_accessor :Admin 
 
   def initialize
     @Admin = false 

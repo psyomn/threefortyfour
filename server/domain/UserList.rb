@@ -4,6 +4,8 @@ require_relative 'User.rb'
 
 module Domain 
 
+#Author::Simon Symeonidis | 5887887 
+# Class which holds all the users. 
 class UserCatalogue
 
   include Singleton
@@ -17,11 +19,14 @@ public
 
   # Return all the users 
   def getUsers
+    return @Users 
   end 
 
   # Create a new user, add to the list 
   def createUser(admin=false) 
-    @Users.add User.new 
+    usr = User.new 
+    usr.Admin = admin 
+    @Users.add usr 
   end 
 
   # Search a user by id. If found,
@@ -31,7 +36,7 @@ public
       return usr if usr.ID == id 
     end 
 
-    nil 
+    return nil 
   end 
 
 private 
