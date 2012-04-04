@@ -28,7 +28,7 @@ public
   # Handle a given command 
   def command(cmd)
     first = cmd.split[0] 
-    first = "default" if !cmd.split[0].nil?
+    first = "default" if cmd.split[0].nil?
     case first  
       when /help/ 
         helpCommand 
@@ -79,7 +79,7 @@ private
   def loginCommand param 
     puts "TODO"
     conn = TechnicalServices::Connection.new 
-    reply  = conn.send_message("hello world") 
+    reply  = conn.send_message("hello world" + param) 
 
     puts reply 
   end 

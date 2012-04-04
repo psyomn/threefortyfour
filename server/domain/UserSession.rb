@@ -2,6 +2,14 @@ module Domain
 
 #Author::Simon Symeonidis 
 # The user session object.
+# Responsible for checking up the users
+# and making sure that they exist. 
+# 
+# If they don't, then the connection 
+# is refused. 
+# 
+# This is done by receiving an id from 
+# the client. 
 class UserSession
 
 public 

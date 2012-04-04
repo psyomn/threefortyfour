@@ -2,7 +2,8 @@ require 'socket'
 
 require_relative 'Connection.rb'
 require_relative 'Configuration.rb'
-require_relative '../UserCatalogue.rb'
+require_relative '../BookingCatalogue.rb'
+require_relative '../EventCatalogue.rb'
 require_relative '../UserSession.rb'
 require_relative '../AdminSession.rb'
 
@@ -40,11 +41,6 @@ public
     loop {
      begin
        Thread.start(@ServerHandle.accept) do |client| 
-       # 
-       # TODO 
-       #   Make sure we're careful about the file descriptors here (we should make sure
-       #   that they are disposed of appropriately when a session is complete) 
-       # 
        p client
        str = client.gets
        puts "str:" + str.to_s
