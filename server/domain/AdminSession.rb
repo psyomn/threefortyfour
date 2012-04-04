@@ -1,4 +1,3 @@
-
 module Domain 
 
 #Author::Simon Symeonidis | 5887887 
@@ -11,6 +10,7 @@ public
   # with a given socket handle 
   def initialize(connection) 
     @SocketHandle = connection 
+    connection.puts "Admin session"
   end 
 
   # View all bookings as requested frrom the 

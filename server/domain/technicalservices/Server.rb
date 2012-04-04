@@ -2,7 +2,9 @@ require 'socket'
 
 require_relative 'Connection.rb'
 require_relative 'Configuration.rb'
-require_relative 'UserCatalogue.rb'
+require_relative '../UserCatalogue.rb'
+require_relative '../UserSession.rb'
+require_relative '../AdminSession.rb'
 
 module Domain
 module TechnicalServices 
@@ -46,8 +48,20 @@ public
        p client
        str = client.gets
        puts "str:" + str.to_s
-       client.puts "Got your message, chum." 
-       client.close
+
+       case str 
+
+         when /admin/i
+           UserSession.new(client)
+         
+         when /user/i 
+           AdminSession.new(client)
+
+         else
+           client.close
+
+       end 
+
        end 
      rescue => details
        puts details.message 
