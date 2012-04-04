@@ -80,9 +80,11 @@ private
       spec.Capacity -= qty
     end
 
+    @SocketHandle.puts "safeguard" 
   end 
 
-  # if the user enters a wrong command
+  # if the user enters a wrong command (and makes it
+  # server side). 
   def errorCommand
     @SocketHandle.puts "You sent something wrong."
   end 
@@ -100,6 +102,7 @@ private
   # has been forked.
   attr_reader :SocketHandle
 
+  # The user id held in the session 
   attr_reader :UserID 
 
 end 

@@ -45,6 +45,9 @@ public
       when /bookevent/ 
         bookEventCommand cmd 
 
+      when /listbookings/ 
+        viewAllBookings
+
       when /cancel/
         cancelCommand 
 
@@ -103,6 +106,14 @@ private
   def viewAllCommand
     puts "Sending view all request..."
     reply = @ConnectionHandle.send_from_open_connection("viewall")
+
+    puts sanitizeReply(reply)
+  end 
+
+  # View all the bookings 
+  def viewAllBookings
+    puts "Sending view all bookings request "
+    reply = @ConnectionHandle.send_from_open_connection("viewallbookings")
 
     puts sanitizeReply(reply)
   end 

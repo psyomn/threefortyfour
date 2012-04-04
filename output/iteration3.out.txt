@@ -1,0 +1,78 @@
+Here you will be able to see that first the admin tries to see the bookings but there are none. 
+Then user dave books a few events. 
+Then admin runs the query again and sees that there are, indeed bookings. 
+
+[psyomn@aeolus server]$ ruby main.rb 
+Loading in development environment
+Booting up server...
+> Using port [6666]
+Server is up 
+#<TCPSocket:fd 7>
+message:login admin
+Admin Session Listening
+Admin Session Listening
+#<TCPSocket:fd 8>
+message:login user dave
+userid dave
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30a28 @ID=0, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="music", @Capacity=10>
+{"dave"=>{"0"=>3}}
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30960 @ID=1, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="cacophony", @Capacity=41>
+{"dave"=>{"0"=>3, "1"=>2}}
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30a28 @ID=0, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="music", @Capacity=7>
+{"dave"=>{"0"=>5, "1"=>2}}
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30870 @ID=2, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="tsifteteli", @Capacity=52>
+{"dave"=>{"0"=>5, "1"=>2, "2"=>1}}
+User Session Listening
+Admin Session Listening
+
+[psyomn@aeolus client]$ ruby main.rb 
+= Theater of Rubies =
+Welcome to the Theater Registration
+Type 'help' for list of available commands 
+> login user dave
+User session
+> bookevent 0 3 
+Booked event
+> bookevent 1 2
+Booked event
+> bookevent 0 2
+Booked event
+> bookevent 2 1
+Booked event
+> 
+
+[psyomn@aeolus server]$ ruby main.rb 
+Loading in development environment
+Booting up server...
+> Using port [6666]
+Server is up 
+#<TCPSocket:fd 7>
+message:login admin
+Admin Session Listening
+Admin Session Listening
+#<TCPSocket:fd 8>
+message:login user dave
+userid dave
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30a28 @ID=0, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="music", @Capacity=10>
+{"dave"=>{"0"=>3}}
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30960 @ID=1, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="cacophony", @Capacity=41>
+{"dave"=>{"0"=>3, "1"=>2}}
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30a28 @ID=0, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="music", @Capacity=7>
+{"dave"=>{"0"=>5, "1"=>2}}
+User Session Listening
+#<Domain::EventSpecification:0x00000001b30870 @ID=2, @EventDate=2012-04-04 03:22:39 -0400, @Lock=false, @Type="tsifteteli", @Capacity=52>
+{"dave"=>{"0"=>5, "1"=>2, "2"=>1}}
+User Session Listening
+Admin Session Listening
+
+
+
+
+

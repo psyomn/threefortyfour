@@ -14,7 +14,6 @@ public
   # Default constructor w/ no params 
   def initialize
     @Bookings = Hash.new 
-
   end 
 
   # Register the user for the specified 
@@ -35,6 +34,12 @@ public
 
   # Return all the bookings. 
   def getBookings
+    @Bookings 
+  end 
+  
+  # Return all the bookings as a string. 
+  def viewAllBookings
+    @Bookings.to_s
   end 
  
 private 

@@ -1,3 +1,5 @@
+require_relative 'BookingCatalogue.rb'
+
 module Domain 
 
 #Author::Simon Symeonidis | 5887887 
@@ -30,7 +32,37 @@ private
 
   # handle the requests from the admin
   def handleRequest
+    loop{
+      puts "Admin Session Listening"
+      clientMessage = @SocketHandle.gets
+      clientMessage.chomp!
+  
+      case clientMessage
+  
+        when /viewallbookings/i 
+          viewAllBookings
+  
+        when /neweventspec/i
+          newEventSpec
 
+        else 
+          errorCommand
+  
+      end 
+    }
+  end 
+
+  # For viewing all the bookings in a particular 
+  # booking
+  def viewAllBookings 
+    @SocketHandle.puts "Bookings : " + BookingCatalogue.instance.viewAllBookings 
+  end
+
+  def newEventSpec
+  end 
+
+  # Default 
+  def errorCommand 
   end 
 
 end 
