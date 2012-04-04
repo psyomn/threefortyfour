@@ -52,10 +52,10 @@ public
        case str 
 
          when /admin/i
-           UserSession.new(client)
+           AdminSession.new(client)
          
          when /user/i 
-           AdminSession.new(client)
+           UserSession.new(client)
 
          else
            client.close
