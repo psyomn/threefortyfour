@@ -17,8 +17,8 @@ public
 
   # Standard initialization 
   def initialize 
-    @Host = Presentation::TechnicalServices::Configuration.instance.Attributes["SERVERNAME"]
-    @Port = Presentation::TechnicalServices::Configuration.instance.Attributes["PORTNUMBER"].to_i 
+    @Host = Configuration.instance.Attributes["SERVERNAME"]
+    @Port = Configuration.instance.Attributes["PORTNUMBER"].to_i 
   end 
 
   # To send a message to the server, use this method. This will 
@@ -27,9 +27,13 @@ public
     @SocketHandle = TCPSocket.open(@Host,@Port)
     @SocketHandle.puts message 
     server_reply = @SocketHandle.gets 
-    @SocketHandle.close 
 
     server_reply 
+  end 
+
+  # Close the connection to the server
+  def close
+    @SocketHandle.close 
   end 
 
 private 

@@ -11,6 +11,8 @@ public
   def initialize(connection) 
     @SocketHandle = connection 
     connection.puts "Admin session"
+
+    handleRequest
   end 
 
   # View all bookings as requested frrom the 
@@ -25,6 +27,11 @@ private
   # from the server once a connection
   # has been forked.
   attr_reader :SocketHandle
+
+  # handle the requests from the admin
+  def handleRequest
+
+  end 
 
 end 
 

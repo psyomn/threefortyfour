@@ -19,6 +19,29 @@ public
   def initialize(connection) 
     @SocketHandle = connection
     connection.puts "User session"
+
+    handleRequest
+  end 
+private 
+
+  # handle the request from user.
+  # We have a simple protocol; say, listen
+  def handleRequest
+    loop{
+      puts "User Session Listening"
+      clientMessage = @SocketHandle.gets
+      clientMessage.chomp!
+  
+      case clientMessage
+  
+        when /viewall/i 
+          viewAllEvents
+  
+        when /bookEvent/i
+          bookEvent
+  
+      end 
+    }
   end 
 
   # View all events
@@ -31,7 +54,6 @@ public
     @SocketHandle.puts "book event"
   end 
 
-private 
 
   # The socket handle passed
   # from the server once a connection

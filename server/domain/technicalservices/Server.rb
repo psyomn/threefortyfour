@@ -26,10 +26,16 @@ module TechnicalServices
 class Server 
 
 public
+
   # Standard inits for the server object go here 
   def initialize 
     @ServerHandle = TCPServer.new Configuration.instance.Attributes["PORT"].to_i
     @Done = false 
+
+    #
+    # TODO - The factory initialization should go here.
+    # 
+
   end 
 
   # The entry point for starting up the server.  

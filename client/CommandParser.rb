@@ -39,6 +39,9 @@ public
       when /logout/
         logoutCommand 
       
+      when /viewall/ 
+        viewAllCommand
+
       when /reserve/ 
         reserveCommand 
 
@@ -66,27 +69,26 @@ private
   # The help command 
   def helpCommand
     @AvailableCommands.each do |com_row| 
-      com_row.each_with_index do |desc,i| 
-      print "#{desc}: " if 0 == i
-      print "#{desc} "  if 1 == i
-      print ", found in: #{desc} command" if 2 == i
-    end 
+        com_row.each_with_index do |desc,i| 
+        print "#{desc}: " if 0 == i
+        print "#{desc} "  if 1 == i
+        print ", found in: #{desc} command" if 2 == i
+      end 
       puts "" 
     end 
   end 
 
   # For loging in 
   def loginCommand param 
-    puts "TODO"
-    conn = TechnicalServices::Connection.new 
-    reply  = conn.send_message("hello world" + param) 
-
+    @ConnectionHandle = TechnicalServices::Connection.new 
+    reply  = @ConnectionHandle.send_message(param) 
     puts reply 
   end 
 
   # For logout 
   def logoutCommand
-    puts "TODO"
+    @ConnectionHandle.close
+    puts "Logged out"
   end 
 
   # For reservations 
@@ -97,6 +99,13 @@ private
   # For cancelations 
   def cancelCommand 
     puts "TODO"
+  end 
+
+  # View all the events 
+  def viewAllCommand
+    puts "Sending view all request..."
+    reply = @ConnectionHandle.send_from_open_connection("viewall")
+    puts reply
   end 
 
 end 
