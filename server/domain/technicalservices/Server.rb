@@ -40,7 +40,7 @@ public
   # The entry point for starting up the server.  
   def run 
    puts "Booting up server..."
-   puts "  > Using port [#{TechnicalServices::Configuration.instance.Attributes["PORT"]}]"
+   puts "  > Using port [#{Configuration.instance.Attributes["PORT"]}]"
    puts "Server is up "
    
     loop {

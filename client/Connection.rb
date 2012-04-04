@@ -31,7 +31,15 @@ public
     server_reply 
   end 
 
-  # Close the connection to the server
+  # To be used when we want to send a message
+  # from the currently opened connection
+  def send_from_open_connection(message) 
+    @SocketHandle.puts message 
+    server_reply = @SocketHandle.gets 
+
+    server_reply 
+  end 
+
   def close
     @SocketHandle.close 
   end 

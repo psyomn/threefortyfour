@@ -17,6 +17,12 @@ public
   # View all the events of the 
   # event catalogue 
   def viewAllEvents
+    str = String.new 
+    EventCatalogue.instance.getAllEvents.each do |event| 
+      str += event.to_s + "|" 
+    end 
+
+    return str 
   end 
 
   # Book a specific event

@@ -1,3 +1,5 @@
+require_relative 'NormalUserFacade.rb'
+
 module Domain
 
 #Author::Simon Symeonidis 
@@ -52,7 +54,8 @@ private
 
   # View all events
   def viewAllEvents
-    @SocketHandle.puts "All events" 
+    nuf = NormalUserFacade.new 
+    @SocketHandle.puts nuf.viewAllEvents
   end 
 
   # Book event from the user

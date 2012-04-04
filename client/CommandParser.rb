@@ -105,6 +105,7 @@ private
   def viewAllCommand
     puts "Sending view all request..."
     reply = @ConnectionHandle.send_from_open_connection("viewall")
+    reply = reply.gsub(/\|/, "\n") 
     puts reply
   end 
 

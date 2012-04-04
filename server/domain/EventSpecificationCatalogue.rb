@@ -27,6 +27,7 @@ public
   # catalogue 
   def add(type,date,capacity) 
     ev = EventSpecification.new 
+    ev.Type = type 
     ev.EventDate = date 
     ev.Capacity = capacity 
 

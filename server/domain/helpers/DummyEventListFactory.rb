@@ -28,18 +28,18 @@ public
     ev.Specification = EventSpecificationCatalogue.instance.getByID(0)
     EventCatalogue.instance.registerNewEvent(ev)
     
-    ev = Event.new 
-    ev.Specification = EventSpecificationCatalogue.instance.getByID(1)
-    EventCatalogue.instance.registerNewEvent(ev)
+    ev2 = Event.new 
+    ev2.Specification = EventSpecificationCatalogue.instance.getByID(1)
+    EventCatalogue.instance.registerNewEvent(ev2)
 
-    ev = Event.new 
-    ev.Specification = EventSpecificationCatalogue.instance.getByID(2)
-    EventCatalogue.instance.registerNewEvent(ev)
+    ev3 = Event.new 
+    ev3.Specification = EventSpecificationCatalogue.instance.getByID(2)
+    EventCatalogue.instance.registerNewEvent(ev3)
 
     
-    ev = Event.new 
-    ev.Specification = EventSpecificationCatalogue.instance.getByID(3)
-    EventCatalogue.instance.registerNewEvent(ev)
+    ev4 = Event.new 
+    ev4.Specification = EventSpecificationCatalogue.instance.getByID(3)
+    EventCatalogue.instance.registerNewEvent(ev4)
   end 
 
 private 
