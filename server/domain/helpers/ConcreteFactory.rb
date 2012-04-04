@@ -1,4 +1,6 @@
 require_relative 'IFactory.rb'
+require_relative 'DummyEventListFactory.rb'
+require_relative 'EventListFactory.rb'
 require_relative '../technicalservices/Configuration.rb'
 
 module Domain
@@ -7,24 +9,26 @@ module Helpers
 #Author::Simon Symeonidis | ID 5887887 
 # This is the concrete factory that is supposed to build the events
 # and other information by loading it from the database.
-class ConcreteFactory < IFactory
+class ConcreteFactory
 
 public 
 
   # load the factory. 
   def initialize 
-    env = Domain::TechnicalServices::Configuration.instance.Attributes["ENVIRONMENT"] 
+    env = TechnicalServices::Configuration.instance.Attributes["ENVIRONMENT"] 
     
     if env == "development" 
-    
+      puts "Loading in development environment"
+      @Instance = DummyEventListFactory.new 
     elsif env == "production"  
-
+      puts "Loading in production environment"
+      @Instance = EventListFactory.new 
     end 
   end 
 
   # implementation of the behaviour for loading
-  def loadEvents
-    
+  def load
+    @Instance.load 
   end 
 
 private 

@@ -13,15 +13,8 @@ public
 
   # intialize without any parameters 
   def initialize 
-    commonInnit
+    commonInit
 
-  end 
-
-  # initialize with a factory 
-  def initialize(eventList) 
-    commonInnit
-    
-    @Events = eventList 
   end 
 
   # Returns all the event from 
@@ -30,9 +23,9 @@ public
     return @Events 
   end 
 
-  # To register a new event 
-  # upon request. 
-  def registerNewEvent
+  # To register a new event upon request. 
+  def registerNewEvent(event) 
+    @Events.push event
   end 
 
 private 

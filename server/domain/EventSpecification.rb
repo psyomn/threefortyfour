@@ -26,7 +26,7 @@ public
   # Standard initializement 
   def initialize
     @ID = @@SelfCount 
-    @EventDate = DateTime.new
+    @EventDate = Time.new
 	 @Lock = false 
 	 @Type = String.new 
 	 @Capacity = 0 

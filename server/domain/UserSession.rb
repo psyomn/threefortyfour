@@ -39,6 +39,12 @@ private
   
         when /bookEvent/i
           bookEvent
+
+        when /help/i
+          helpCommand
+
+        else 
+          errorCommand
   
       end 
     }
@@ -54,6 +60,18 @@ private
     @SocketHandle.puts "book event"
   end 
 
+  # if the user enters a wrong command
+  def errorCommand
+    @SocketHandle.puts "You sent something wrong."
+  end 
+
+  # This is if something goes wrong when 
+  # the client sends a message to the server.
+  def helpCommand 
+    @SocketHandle.puts "Commands are:"
+    @SocketHandle.puts "  viewall"
+    @SocketHandle.puts "  bookevent"
+  end
 
   # The socket handle passed
   # from the server once a connection

@@ -17,27 +17,30 @@ public
   def initialize 
     commonInit 
 
-    @EventSpecs = eventTypeList 
   end 
 
   # Initialize with a pre loaded
   # list of events type (either dummy 
-  # specifications, or the db ones). 
-  def initialize(eventTypeList) 
-    commonInit 
-
-    @EventSpecs = eventTypeList 
-  end 
 
 
   # Add an event to the event specification 
   # catalogue 
   def add(type,date,capacity) 
     ev = EventSpecification.new 
-    ev.Date = date 
+    ev.EventDate = date 
     ev.Capacity = capacity 
 
     @EventSpecs.push ev 
+  end 
+
+  # Return a specification by 
+  # id. If not found return nil  
+  def getByID(id)
+    @EventSpecs.each do |eventspec| 
+      return eventspec if eventspec.ID == id 
+    end 
+
+    nil 
   end 
 
 private 
@@ -45,6 +48,7 @@ private
   # The event specifications list 
   attr_reader :EventSpecs
 
+protected 
   # Common initialization 
   def commonInit
     @EventSpecs = Array.new 

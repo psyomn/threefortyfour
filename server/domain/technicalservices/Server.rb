@@ -6,6 +6,7 @@ require_relative '../BookingCatalogue.rb'
 require_relative '../EventCatalogue.rb'
 require_relative '../UserSession.rb'
 require_relative '../AdminSession.rb'
+require_relative '../helpers/ConcreteFactory.rb'
 
 module Domain
 module TechnicalServices 
@@ -32,10 +33,8 @@ public
     @ServerHandle = TCPServer.new Configuration.instance.Attributes["PORT"].to_i
     @Done = false 
 
-    #
-    # TODO - The factory initialization should go here.
-    # 
-
+    cf = Helpers::ConcreteFactory.new 
+    cf.load 
   end 
 
   # The entry point for starting up the server.  

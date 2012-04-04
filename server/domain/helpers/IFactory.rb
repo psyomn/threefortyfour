@@ -1,5 +1,3 @@
-require 'singleton'
-
 module Domain
 module Helpers
 
@@ -7,7 +5,6 @@ module Helpers
 # Factory for creating the objects when the system 
 # first boots up. 
 class IFactory 
-  include Singleton
 
 public 
 
