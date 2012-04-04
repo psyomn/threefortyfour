@@ -1,0 +1,14 @@
+= Theater of Rubies =
+Welcome to the Theater Registration
+Type 'help' for list of available commands 
+> login user
+User session
+> viewall
+Sending view all request...
+0 music 2012-04-04 00:25:39 -0400 57
+1 cacophony 2012-04-04 00:25:39 -0400 25
+2 tsifteteli 2012-04-04 00:25:39 -0400 82
+3 bouzouki night 2012-04-04 00:25:39 -0400 41
+
+> 
+
