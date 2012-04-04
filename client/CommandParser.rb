@@ -21,7 +21,7 @@ public
     @AvailableCommands.push [:login, "login to system", :loginCommand] 
     @AvailableCommands.push [:logout, "logout from system", :logoutCommand] 
     @AvailableCommands.push [:cancel, "cancel from system", :cancelCommand] 
-    @AvailableCommands.push [:reserve, "reserve from system", :cancelCommand] 
+    @AvailableCommands.push [:bookevent, "bookevent from system", :bookEventCommand] 
 
   end 
 
@@ -42,8 +42,8 @@ public
       when /viewall/ 
         viewAllCommand
 
-      when /reserve/ 
-        reserveCommand 
+      when /bookevent/ 
+        bookEventCommand cmd 
 
       when /cancel/
         cancelCommand 
@@ -92,21 +92,25 @@ private
   end 
 
   # For reservations 
-  def reserveCommand 
-    puts "TODO"
+  def bookEventCommand param 
+    arr = param.split 
+    reply = @ConnectionHandle.send_from_open_connection("bookevent #{arr[1]} #{arr[2]}")
+    puts sanitizeReply(reply)
   end 
 
-  # For cancelations 
-  def cancelCommand 
-    puts "TODO"
-  end 
 
   # View all the events 
   def viewAllCommand
     puts "Sending view all request..."
     reply = @ConnectionHandle.send_from_open_connection("viewall")
-    reply = reply.gsub(/\|/, "\n") 
-    puts reply
+
+    puts sanitizeReply(reply)
+  end 
+
+private 
+
+  def sanitizeReply(replyMessage)
+    replyMessage.gsub(/\|/, "\n")    
   end 
 
 end 

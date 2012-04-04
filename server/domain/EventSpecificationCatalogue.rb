@@ -38,7 +38,7 @@ public
   # id. If not found return nil  
   def getByID(id)
     @EventSpecs.each do |eventspec| 
-      return eventspec if eventspec.ID == id 
+      return eventspec if eventspec.ID == id.to_i 
     end 
 
     nil 

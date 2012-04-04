@@ -13,12 +13,24 @@ public
 
   # Default constructor w/ no params 
   def initialize
-    @Bookings = Array.new 
+    @Bookings = Hash.new 
+
   end 
 
   # Register the user for the specified 
   # event 
-  def createBooking(user,event) 
+  def createBooking(user,event,count) 
+    
+    if @Bookings.has_key? user and @Bookings[user].has_key? event
+      @Bookings[user][event] += count.to_i
+    else
+      if !@Bookings.has_key? user 
+        @Bookings[user] = Hash.new 
+      end   
+      @Bookings[user][event] = count.to_i
+    end 
+    
+    p @Bookings
   end 
 
   # Return all the bookings. 

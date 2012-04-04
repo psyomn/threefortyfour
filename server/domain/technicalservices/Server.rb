@@ -48,7 +48,7 @@ public
        Thread.start(@ServerHandle.accept) do |client| 
        p client
        str = client.gets
-       puts "str:" + str.to_s
+       puts "message:" + str.to_s
 
        case str 
 
@@ -56,7 +56,9 @@ public
            AdminSession.new(client)
          
          when /user/i 
-           UserSession.new(client)
+           user_token = str.split[2] 
+           puts "userid #{user_token}"
+           UserSession.new(client, user_token)
 
          else
            client.close

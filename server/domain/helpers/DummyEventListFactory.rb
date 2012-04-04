@@ -19,7 +19,7 @@ public
 
   # load the dummy events 
   def load 
-    EventSpecificationCatalogue.instance.add("music", Time.new, rand(100))
+    EventSpecificationCatalogue.instance.add("music", Time.new, 10)
     EventSpecificationCatalogue.instance.add("cacophony", Time.new, rand(100))
     EventSpecificationCatalogue.instance.add("tsifteteli", Time.new, rand(100))
     EventSpecificationCatalogue.instance.add("bouzouki night", Time.new, rand(100))

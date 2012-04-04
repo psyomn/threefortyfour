@@ -1,4 +1,6 @@
 require_relative 'NormalUserFacade.rb'
+require_relative 'BookingCatalogue.rb'
+require_relative 'EventSpecificationCatalogue.rb'
 
 module Domain
 
@@ -18,8 +20,9 @@ public
 
   # Initialize by passing the socket 
   # handle to this object. 
-  def initialize(connection) 
+  def initialize(connection, userid) 
     @SocketHandle = connection
+    @UserID = userid 
     connection.puts "User session"
 
     handleRequest
@@ -39,8 +42,11 @@ private
         when /viewall/i 
           viewAllEvents
   
-        when /bookEvent/i
-          bookEvent
+        when /bookevent/i
+          spl = clientMessage.split
+          eventid = spl[1] 
+          qty = spl[2] 
+          bookEvent @UserID, eventid, qty
 
         when /help/i
           helpCommand
@@ -59,8 +65,21 @@ private
   end 
 
   # Book event from the user
-  def bookEvent
-    @SocketHandle.puts "book event"
+  def bookEvent userid, eventid, qty
+    spec = EventSpecificationCatalogue.instance.getByID(eventid)
+    
+    qty = qty.to_i
+    
+    p spec 
+
+    if spec.Capacity < qty
+      @SocketHandle.puts "Not enough spaces" 
+    else
+      @SocketHandle.puts "Booked event"
+      BookingCatalogue.instance.createBooking(userid,eventid,qty)
+      spec.Capacity -= qty
+    end
+
   end 
 
   # if the user enters a wrong command
@@ -80,6 +99,8 @@ private
   # from the server once a connection
   # has been forked.
   attr_reader :SocketHandle
+
+  attr_reader :UserID 
 
 end 
 
